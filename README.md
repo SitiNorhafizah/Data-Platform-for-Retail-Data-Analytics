@@ -1,20 +1,17 @@
-# Data-Platform-for-Retail-Data-Analytics
-This project demonstrates a modern ETL pipeline and data warehouse design tailored for retail or finance sectors. It uses Apache Airflow to transform raw sales transaction data into a clean, analytics-ready dimensional model in DB2 on Cloud. The transformed data is then visualized through IBM Cognos Analytics and further analyzed using Spark.
+Purpose: Demonstrates a modern retail data platform including ETL pipelines, data warehouses, and analytics.
 
-AceCart's online presence is primarily through its website, which customers access using a variety of devices like laptops, mobiles and tablets.
+Key components:
 
-1) Catalog data of the products - stored in the MongoDB NoSQL server.
+Catalog (MongoDB NoSQL) → product metadata for AceCart (laptops, mobiles, tablets)
 
-2) Transactional data like inventory and sales - stored in the MySQL database server.
+Transactional (MySQL OLTP) → inventory and sales data
 
-3) Data is periodically extracted from these two databases and put into the staging data warehouse running on PostgreSQL.
+Staging warehouse (PostgreSQL) → temporary staging area for transformed data
 
-4) The production data warehouse - the cloud instance of IBM DB2 server.
+Production warehouse (IBM DB2 Cloud) → dimensional model for BI dashboards
 
-5) BI teams connect to the IBM DB2 for operational dashboard creation. IBM Cognos Analytics is used to create dashboards.
+ETL pipelines (Apache Airflow) → move/transform data between OLTP, NoSQL, and warehouses
 
-6) AceCart uses Hadoop cluster as its big data platform where all the data is collected for analytics purposes.
+Analytics/BI: Spark for analysis, IBM Cognos Analytics for dashboards
 
-7) Spark is used to analyse the data on the Hadoop cluster.
-
-8) To move data between OLTP, NoSQL and the data warehouse, ETL pipelines are used and these run on Apache Airflow
+Big Data platform: Hadoop cluster for raw data collection
