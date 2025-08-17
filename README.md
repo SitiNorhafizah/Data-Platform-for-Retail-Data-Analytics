@@ -14,4 +14,6 @@ Key components:
 
 6) Analytics/BI: Spark for analysis, IBM Cognos Analytics for dashboards
 
+- 📊 [Live Cognos Dashboard] : https://ap1.ca.analytics.ibm.com/bi/?perspective=dashboard&pathRef=.my_folders%2FProject1&action=view&mode=dashboard&subView=model00000198b7b76037_00000004
+
 7) Big Data platform: Hadoop cluster for raw data collection
