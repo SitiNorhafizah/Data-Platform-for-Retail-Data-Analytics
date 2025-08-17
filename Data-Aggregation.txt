@@ -1,0 +1,42 @@
+1) Grouping:
+
+SELECT 
+    customer_id,
+    product_id,
+    price,
+    SUM(price) AS total_price,
+    GROUPING(customer_id) AS is_customer_total,
+    GROUPING(product_id) AS is_product_total,
+    GROUPING(price) AS is_price_total
+FROM sales_data
+GROUP BY GROUPING SETS (
+    (customer_id, product_id),  -- combination of customer and product
+    (customer_id),              -- subtotal per customer
+    (product_id),               -- subtotal per product
+    (price)                     -- subtotal per price (if needed)
+);
+
+2) Rollup:
+
+SELECT 
+    customer_id,
+    product_id,
+    price,
+    SUM(price) AS total_price,
+    GROUPING(customer_id) AS is_customer_total,
+    GROUPING(product_id) AS is_product_total,
+    GROUPING(price) AS is_price_total
+FROM sales_data
+GROUP BY ROLLUP(customer_id, product_id, price);
+
+3) Cube
+
+SELECT 
+    customer_id,
+    product_id,
+    AVG(price) AS avg_price,
+    GROUPING(customer_id) AS is_customer_total,
+    GROUPING(product_id) AS is_product_total
+FROM sales_data
+GROUP BY CUBE(customer_id, product_id);
+
